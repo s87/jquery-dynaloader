@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>jquery-dynaloader example</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.dynaloader-1.0.js"></script>
+
+</head>
+<body>
+<div id="main" style="border:1px solid #ff0000">
+<h1>jquery-dynaloader Example</h1>
+
+<div class="shadow" id="shadow" style="width:250px;height:200px;overflow:scroll;">
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+	dummy<br>
+</div>
+
+</div>
+<script type="text/javascript">
+
+$(".shadow").dynaLoader();
+$(window).dynaLoader({ targetSelector : '#main' });
+
+</script>
+</body>
+</html>

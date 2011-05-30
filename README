@@ -1,0 +1,9 @@
+jquery-dynaloader
+
+This jquery-plugin loads content dynamically after scrolling to end of div-containers or the whole page.
+Tested with jquery-1.4.4.
+
+To use it include jquery and jquery-dynaloader. Create a div-element named "myDiv".
+
+$("#myDiv").dynaLoader();
+
