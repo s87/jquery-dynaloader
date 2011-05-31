@@ -5,14 +5,14 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.dynaloader-1.0.js"></script>
 <style type="text/css">
-.shadow { width:350px;height:200px;overflow:scroll;margin-bottom:5px; }
-#main { } 
+.shadow { width:350px;height:200px;overflow:scroll;margin-bottom:20px; }
+#main { border:1px solid #e9e9e9; padding:20px; } 
 </style>
 </head>
 <body>
 <h1>jquery-dynaloader Example</h1>
 
-<div id="main" style="border:1px solid #ff0000">
+<div id="main">
 
 <div class="shadow"></div>
 <div class="shadow"></div>
@@ -23,6 +23,7 @@
 <script type="text/javascript">
 $( function() {
 
+	// Fill our boxes with dummy content
 	$(".shadow").each( function() 
 	{		
 		for( var x=0; x < 20; x++ )
@@ -31,17 +32,26 @@ $( function() {
 		}
 	} );
 
-	// Use dynaloader on all .shadow-Boxes
+	/*
+		Use dynaloader on all .shadow-Boxes. All content inside 
+		the #page-element will appended to .shadow-div
+	*/
 	$(".shadow").dynaLoader(
 			{
 				loaderUrl : 'example-data.html #page' } );
 
-	// Use dynaloader on window-Object
+	/*
+		Use dynaloader on window-Object, loaded content will appended
+		to targetSelector #main
+	*/
 	$(window).dynaLoader(
 			{
 				loaderUrl : 'example-data.html #page',
-				targetSelector : '#main' } );
-
+				targetSelector : '#main',
+				onContentLoaded : function(obj)
+				{
+					$(obj).show(); // don't fadeIn, only show
+				}} );
 } );
 </script>
 

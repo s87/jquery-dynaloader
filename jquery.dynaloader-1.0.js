@@ -2,7 +2,7 @@
 
   $.fn.dynaLoader = function( options ) {  
 	  
-	  function contentLoaded( obj,x )
+	  function contentLoaded( obj )
 	  {
 		  $(obj).fadeIn();
 	  }
