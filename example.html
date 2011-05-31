@@ -1,37 +1,49 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>jquery-dynaloader example</title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.dynaloader-1.0.js"></script>
-
+<style type="text/css">
+.shadow { width:350px;height:200px;overflow:scroll;margin-bottom:5px; }
+#main { } 
+</style>
 </head>
 <body>
-<div id="main" style="border:1px solid #ff0000">
 <h1>jquery-dynaloader Example</h1>
 
-<div class="shadow" id="shadow" style="width:250px;height:200px;overflow:scroll;">
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-	dummy<br>
-</div>
+<div id="main" style="border:1px solid #ff0000">
+
+<div class="shadow"></div>
+<div class="shadow"></div>
+<div class="shadow"></div>
 
 </div>
+
 <script type="text/javascript">
+$( function() {
 
-$(".shadow").dynaLoader();
-$(window).dynaLoader({ targetSelector : '#main' });
+	$(".shadow").each( function() 
+	{		
+		for( var x=0; x < 20; x++ )
+		{
+			$(this).append( "Scroll me, to view loaded content<br>");
+		}
+	} );
 
+	// Use dynaloader on all .shadow-Boxes
+	$(".shadow").dynaLoader(
+			{
+				loaderUrl : 'example-data.html #page' } );
+
+	// Use dynaloader on window-Object
+	$(window).dynaLoader(
+			{
+				loaderUrl : 'example-data.html #page',
+				targetSelector : '#main' } );
+
+} );
 </script>
+
 </body>
 </html>
